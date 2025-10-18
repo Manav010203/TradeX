@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id            String        @id @default(uuid())
+  email         String        @unique
+  password      String
+  name          String
+  balance       Float         @default(10000)
+  portfolios    Portfolio[]
+  transactions  Transaction[]
+  createdAt     DateTime      @default(now())
+}
+model Asset{
+  id            String        @id @default(uuid())
+  symbol        String        @unique
+  name          String
+  priceUsd      Float         @default(0)
+  portfolios    Portfolio[]
+  transactions  Transaction[]
+}
+model Portfolio{
+  id            String        @id @default(uuid())
+  userId        String
+  assetId       String
+  quantity      Float          @default(0)
+
+
+  user          User           @relation(fields: [userId],references: [id])
+  asset         Asset          @relation(fields: [assetId],references: [id])
+
+  @@unique([userId,assetId])
+}
+model Transaction{
+  id           String          @id @default(uuid())
+  userId        String
+  assetId       String
+  type          TransactionType
+  quantity      Float
+  priceUsd      Float
+  total         Float
+  createdAt     DateTime        @default(now())
+
+
+  user          User            @relation(fields: [userId],references: [id])
+  asset         Asset           @relation(fields: [assetId],references: [id])
+}
+
+
+enum TransactionType{
+  BUY
+  SELL
+}

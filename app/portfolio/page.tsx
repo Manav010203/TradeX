@@ -42,6 +42,11 @@ export default function portfolioPage(){
     return (
   <div className="max-w-5xl mx-auto px-5 py-10">
     <h1 className="text-3xl font-bold mb-8">My Portfolio</h1>
+    <div className="mb-6 flex justify-between items-center">
+  <p className="text-gray-700 font-medium">Balance: ${balance?.toLocaleString() || 0}</p>
+  <p className="text-gray-700 font-medium">Total Value: ${portfolioValue?.toLocaleString() || 0}</p>
+</div>
+
 
     {portfolio.length === 0 ? (
       <div className="text-center mt-20">

@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Crypto Trading (TradeX)
+
+A full-stack cryptocurrency trading platform built with **Next.js**, **TypeScript**, **Tailwind CSS**, **NextAuth**, **Prisma**, and **PostgreSQL**. The app allows users to view live crypto market data, track their portfolio, execute trades, and see top-performing coins over various timeframes.
+
+---
+
+## Features
+
+- **Landing & Home Pages**: Modern responsive design with a gray-themed dashboard and crypto hero visuals.
+- **Authentication**: Google OAuth 2.0 sign-in using NextAuth.
+- **Live Market Data**: Fetches real-time cryptocurrency prices and stats from [CoinGecko API](https://www.coingecko.com/en/api).
+- **Trading**: Buy and sell cryptocurrencies with real-time portfolio updates and balance tracking.
+- **Portfolio Tracking**: View holdings, total portfolio value, and distribution with interactive charts.
+- **Top Performing Coins**: Displays the best coins by last week, last month, last year, and all-time.
+- **Charts & Graphs**: Recharts integration for price trends and portfolio distribution visualizations.
+
+---
+
+## Tech Stack
+
+- **Frontend**: Next.js, TypeScript, Tailwind CSS, Recharts
+- **Backend**: Next.js API Routes, NextAuth
+- **Database**: PostgreSQL via Prisma ORM
+- **Authentication**: Google OAuth
+- **APIs**: CoinGecko API for live market data
+
+---
+
+## Demo
+
+> https://trade-x-fnp3.vercel.app
+
+---
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository And follow the below commands:
 
 ```bash
+git clone https://github.com/yourusername/crypto-dashboard.git
+cd TradeX
+npm install
+cp .env.example .env
+npx prisma init
+npx prisma migrate dev
+npx prisma generate
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License

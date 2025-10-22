@@ -10,7 +10,7 @@ type Portfolio = {
     value:number;
 }
 
-export default function portfolioPage(){
+export default function PortfolioPage(){
     // const [coins,setCoins] = useState<Coin[]>([]);
     const [portfolio,setPortfolio] = useState<Portfolio[]>([]);
     const [loading,setLoading] = useState(true);

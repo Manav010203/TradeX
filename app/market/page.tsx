@@ -12,7 +12,7 @@ type Coin = {
     price_change_percentage_24h:number;
 }
 
-export default function marketPage(){
+export default function MarketPage(){
 
     const [coins,setCoins] = useState<Coin[]>([]);
     const [loading,setLoading] = useState(true);

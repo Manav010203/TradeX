@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-type tradeType = "BUY"|"SELL"|""
 type Coin = {
     id:string;
     symbol:string;
@@ -40,10 +39,47 @@ export default function TradePage(){
     if(error) return <div className="text-center mt-10">{error}</div>
 
 
+
+    const handleSubmit = async(e : React.FormEvent) =>{
+        e.preventDefault();
+        if (!symbol || quantity <= 0 || (type !== "BUY" && type !== "SELL")) {
+            alert("Validation failed: please select all fields properly");
+            return;
+        }
+        
+        try{
+            const trading = await fetch("/api/trade",{
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json", 
+                },
+                body:JSON.stringify({name:symbol,
+                    type:type,
+                    quantity:quantity
+                })
+            })
+            if(!trading.ok){
+                alert("Trade not successful");
+                return;
+            }
+            else{
+                alert("trade successful ✅");
+                setSymbol("");
+                setQuantity(0);
+                setType("");
+            }
+        }catch(err){
+            // setError("Something went wrong");
+            console.error(err);   
+            alert("erro occured while trading");
+        }
+    };
+    
+
     return (
         <div className="text-center mt-10 p-6 bg-gray-400 shadow rounded-xl">
             <h1 className="text-3xl font-bold mb-4 text-center text-gray-800">Trade Page</h1>
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleSubmit}>
 
                 {/*Select coin from thjwe dropbox */}
                 <div>

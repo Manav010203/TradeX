@@ -38,7 +38,7 @@ export async function POST(req:NextRequest) {
                 status:404
             })
         }
-        const livemarket = await fetch("http://localhost:3000/api/market")
+        const livemarket = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd")
         const data = await livemarket.json();
         // console.log(data);
         const coin = data.find(

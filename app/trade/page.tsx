@@ -48,7 +48,7 @@ export default function TradePage(){
         }
         
         try{
-            const trading = await fetch("/api/trade",{
+            const trading = await fetch(`/api/trade`,{
                 method:"POST",
                 headers:{
                     "Content-Type": "application/json", 

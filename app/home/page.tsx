@@ -245,9 +245,9 @@ export default function HomePage() {
                   <h3 className="font-bold text-gray-600">
                     {p.name} ({p.symbol.toUpperCase()})
                   </h3>
-                  <p>Quantity: {p.quantity}</p>
-                  <p>Price: ${p.current_price.toLocaleString()}</p>
-                  <p className="font-semibold">Value: ${p.value.toLocaleString()}</p>
+                  <p className="text-gray-500">Quantity: {p.quantity}</p>
+                  <p className="text-gray-500">Price: ${p.current_price.toLocaleString()}</p>
+                  <p className="font-semibold text-gray-500">Value: ${p.value.toLocaleString()}</p>
                 </div>
               ))}
             </div>

@@ -53,9 +53,9 @@ export default function TradePage(){
                 headers:{
                     "Content-Type": "application/json", 
                 },
-                body:JSON.stringify({name:symbol,
-                    type:type,
-                    quantity:quantity
+                body:JSON.stringify({symbol:symbol,
+                    type,
+                    quantity
                 })
             })
             if(!trading.ok){

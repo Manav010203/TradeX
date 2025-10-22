@@ -25,7 +25,7 @@ export default function AppBar() {
   return (
     <nav className="flex items-center justify-between px-6 py-4 bg-gray-900 text-white shadow-md">
       {/* Left Section - Logo / Brand */}
-      <Link href="/" className="text-2xl font-bold tracking-wide hover:text-blue-400">
+      <Link href="/home" className="text-2xl font-bold tracking-wide hover:text-blue-400">
         TradeX
       </Link>
 

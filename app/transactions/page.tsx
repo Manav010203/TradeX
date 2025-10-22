@@ -58,11 +58,11 @@ export default function TransactionsPage() {
           <table className="min-w-full border border-gray-200 rounded-xl shadow-md">
             <thead className="bg-gray-100">
               <tr>
-                <th className="p-3 text-left">Coin</th>
-                <th className="p-3 text-left">Type</th>
-                <th className="p-3 text-left">Quantity</th>
-                <th className="p-3 text-left">Price</th>
-                <th className="p-3 text-left">Date</th>
+                <th className="p-3 text-left text-gray-600">Coin</th>
+                <th className="p-3 text-left text-gray-600">Type</th>
+                <th className="p-3 text-left text-gray-600">Quantity</th>
+                <th className="p-3 text-left text-gray-600">Price</th>
+                <th className="p-3 text-left text-gray-600">Date</th>
               </tr>
             </thead>
             <tbody>

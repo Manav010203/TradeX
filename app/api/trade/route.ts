@@ -40,7 +40,8 @@ export async function POST(req:NextRequest) {
         }
         const livemarket = await fetch("http://localhost:3000/api/market")
         const data = await livemarket.json();
-        const coin = data.filtered.find(
+        // console.log(data);
+        const coin = data.find(
             (c:any)=> c.symbol.toLowerCase() === body.symbol.toLowerCase()
         );
         if(!coin){

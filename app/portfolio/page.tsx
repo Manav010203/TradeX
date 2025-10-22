@@ -23,9 +23,9 @@ export default function portfolioPage(){
         try{
             const data = await fetch("/api/portfolio");
             const portfolio =await data.json();
-            setPortfolio(portfolio?.holdings || []);
-            setBalance(portfolio.balance);
-            setPortfolioValue(portfolio.value);
+            setPortfolio(portfolio.holdings || []);
+            setBalance(portfolio.user.balance);
+            setPortfolioValue(portfolio.portfolioValue);
         }
         catch(err){
         setError("unable to fetch the portfolio");
@@ -43,8 +43,8 @@ export default function portfolioPage(){
   <div className="max-w-5xl mx-auto px-5 py-10">
     <h1 className="text-3xl font-bold mb-8">My Portfolio</h1>
     <div className="mb-6 flex justify-between items-center">
-  <p className="text-gray-700 font-medium">Balance: ${balance?.toLocaleString() || 0}</p>
-  <p className="text-gray-700 font-medium">Total Value: ${portfolioValue?.toLocaleString() || 0}</p>
+  <p className="text-gray-600 font-medium">Balance: ${balance?.toLocaleString() || 0}</p>
+  <p className="text-gray-600 font-medium">Total Value: ${portfolioValue?.toLocaleString() || 0}</p>
 </div>
 
 
@@ -67,14 +67,14 @@ export default function portfolioPage(){
             key={p.id}
             className="bg-white border rounded-xl shadow p-6 hover:shadow-lg transition"
           >
-            <h3 className="font-bold text-lg mb-2">
+            <h3 className="font-bold text-lg mb-2 text-gray-700">
               {p.name} ({p.symbol.toUpperCase()})
             </h3>
             <p className="text-gray-600">Quantity: {p.quantity}</p>
             <p className="text-gray-600">
               Current Price: ${p.current_price.toLocaleString()}
             </p>
-            <p className="mt-2 font-semibold">
+            <p className="mt-2 font-semibold text-gray-600">
               Value: ${p.value.toLocaleString()}
             </p>
           </div>

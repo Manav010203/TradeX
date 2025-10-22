@@ -138,7 +138,7 @@ export default function HomePage() {
 
       {/* Top Performers */}
       <section className="bg-white p-6 rounded-xl shadow w-full max-w-6xl">
-        <h2 className="text-2xl font-semibold mb-4">Top Performing Coins</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-600">Top Performing Coins</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
           {[
             { label: "Last Week", key: "price_change_percentage_7d_in_currency" },
@@ -172,7 +172,7 @@ export default function HomePage() {
 
       {/* Market Overview with Sparklines */}
       <section className="bg-white p-6 rounded-xl shadow w-full max-w-6xl">
-        <h2 className="text-2xl font-semibold mb-4">Market Overview</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-600">Market Overview</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
           {coins.map((coin) => (
             <div
@@ -180,9 +180,9 @@ export default function HomePage() {
               className="border rounded-xl p-4 flex flex-col items-center shadow hover:shadow-lg transition"
             >
               <img src={coin.image} alt={coin.name} className="w-12 h-12 mb-2" />
-              <p className="font-semibold">{coin.name}</p>
+              <p className="font-semibold text-gray-500">{coin.name}</p>
               <p className="text-gray-500 uppercase">{coin.symbol}</p>
-              <p className="mt-1 font-bold">${coin.current_price.toLocaleString()}</p>
+              <p className="mt-1 font-bold text-gray-500">${coin.current_price.toLocaleString()}</p>
               <p
                 className={
                   coin.price_change_percentage_24h > 0
@@ -222,7 +222,7 @@ export default function HomePage() {
 
       {/* Portfolio Overview */}
       <section className="bg-white p-6 rounded-xl shadow w-full max-w-6xl">
-        <h2 className="text-2xl font-semibold mb-4">My Portfolio</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-600">My Portfolio</h2>
         <div className="mb-4 flex justify-between">
           <p className="text-gray-700 font-medium">
             Balance: ${balance.toLocaleString()}
@@ -242,7 +242,7 @@ export default function HomePage() {
                   key={p.id}
                   className="border rounded-xl p-4 shadow hover:shadow-lg transition"
                 >
-                  <h3 className="font-bold">
+                  <h3 className="font-bold text-gray-600">
                     {p.name} ({p.symbol.toUpperCase()})
                   </h3>
                   <p>Quantity: {p.quantity}</p>
